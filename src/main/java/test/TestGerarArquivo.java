@@ -3,6 +3,7 @@ package test;
 import domain.EscolaAutenticacao;
 import domain.Censo;
 import domain.Escola;
+import domain.EscolaIdentificacao;
 import utils.GerarArquivoCenso;
 
 /**
@@ -18,6 +19,8 @@ public class TestGerarArquivo {
         escolaAutenticacao.setEmailGestor("marcus@hotmail.com");
         escolaAutenticacao.setNomeDoGestor("Marcus Vinicius");
         e.setEscolaAutenticacao(escolaAutenticacao);
+        EscolaIdentificacao escolaIdentificacao = new EscolaIdentificacao();
+        e.setEscolaIdentificacao(escolaIdentificacao);
         censo.setEscola(e);
         String arquivoString="";
         try {

@@ -36,13 +36,13 @@ public class GerarArquivoCenso {
         Set<ConstraintViolation<Escola>> errosEscola = escola.valida();
         Set<ConstraintViolation<EscolaAutenticacao>> errosAutenticao = escola.getEscolaAutenticacao().valida();
         Set<ConstraintViolation<Registro>> errosRegistro = escola.getRegistro().valida();
-        Set<ConstraintViolation<EscolaIdentificacao>> errosIdentificacao = escola.getEscolaIdentificacao().valida();
+        //Set<ConstraintViolation<EscolaIdentificacao>> errosIdentificacao = escola.getEscolaIdentificacao().valida();
 
         String msg = "";
         msg += errosEscola.stream().map(i-> i.getPropertyPath()+": "+i.getMessage()).collect(Collectors.joining("\n"));
         msg += errosAutenticao.stream().map(i-> i.getPropertyPath()+": "+i.getMessage()).collect(Collectors.joining("\n"));
         msg += errosRegistro.stream().map(i-> i.getPropertyPath()+": "+i.getMessage()).collect(Collectors.joining("\n"));
-        msg += errosIdentificacao.stream().map(i-> i.getPropertyPath()+": "+i.getMessage()).collect(Collectors.joining("\n"));
+        //msg += errosIdentificacao.stream().map(i-> i.getPropertyPath()+": "+i.getMessage()).collect(Collectors.joining("\n"));
 
         if(msg!=null && !msg.isEmpty())
             throw new Exception(msg);
